@@ -92,9 +92,10 @@ typedef struct pcb {
 #define	PCB_CLEAR_UPDATE_FPU(pcb)	((pcb)->pcb_rupdate &= ~PCB_UPDATE_FPU)
 
 /* fpu_flags */
-#define	FPU_EN		0x1	/* flag signifying fpu in use */
+#define	FPU_EN		0x1	/* flag signifying fpu in use with user state */
 #define	FPU_VALID	0x2	/* fpu_regs has valid fpu state */
 #define	FPU_MODIFIED	0x4	/* fpu_regs is modified (/proc) */
+#define	FPU_KERNEL	0x8	/* Kernel is using the FPU */
 
 #define	FPU_INVALID	0x0	/* fpu context is not in use */
 
