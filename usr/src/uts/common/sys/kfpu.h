@@ -10,7 +10,7 @@
  */
 
 /*
- * Copyright 2019 Joyent, Inc.
+ * Copyright 2020 Joyent, Inc.
  */
 
 #ifndef _SYS_KFPU_H
@@ -21,6 +21,8 @@
  * Care should be exercised when using the FPU. XXX Insert more warnings about
  * not screwing up.
  */
+
+#include <sys/types.h>
 
 #ifdef __cplusplus
 extern "C" {
