@@ -11,7 +11,7 @@
 
 #
 # Copyright 2013 Pluribus Networks Inc.
-# Copyright 2019 Joyent, Inc.
+# Copyright 2020 Joyent, Inc.
 #
 
 #
@@ -38,42 +38,7 @@ include $(UTSBASE)/i86pc/Makefile.i86pc
 #	Define targets
 #
 ALL_TARGET	= $(BINARY)
-LINT_TARGET	= $(MODULE).lint
 INSTALL_TARGET	= $(BINARY) $(ROOTMODULE) $(ROOT_CONFFILE)
-
-#
-#	Overrides and additions
-#
-LINTTAGS	+= -erroff=E_EMPTY_DECLARATION
-LINTTAGS	+= -erroff=E_OPERANDS_INCOMPATIBLE_TYPES
-LINTTAGS	+= -erroff=E_VOID_CANT_RETURN_VALUE
-LINTTAGS	+= -erroff=E_YACC_ERROR
-LINTTAGS	+= -erroff=E_STATIC_UNUSED
-LINTTAGS	+= -erroff=E_FUNC_RET_MAYBE_IGNORED2
-LINTTAGS	+= -erroff=E_FUNC_RET_ALWAYS_IGNOR2
-LINTTAGS	+= -erroff=E_BAD_FORMAT_ARG_TYPE2
-LINTTAGS	+= -erroff=E_FUNC_ARG_UNUSED
-LINTTAGS	+= -erroff=E_FUNC_SET_NOT_USED
-LINTTAGS	+= -erroff=E_ASSIGN_NARROW_CONV
-LINTTAGS	+= -erroff=E_BAD_PTR_CAST_ALIGN
-LINTTAGS	+= -erroff=E_CONSTANT_CONDITION
-LINTTAGS	+= -erroff=E_PTR_TO_VOID_IN_ARITHMETIC
-LINTTAGS	+= -erroff=E_CONST_TRUNCATED_BY_ASSIGN
-LINTTAGS	+= -erroff=E_NOP_ELSE_STMT
-LINTTAGS	+= -erroff=E_FUNC_NO_RET_VAL
-LINTTAGS	+= -erroff=E_OLD_STYLE_DECL_OR_BAD_TYPE
-LINTTAGS	+= -erroff=E_VAR_USED_BEFORE_SET
-LINTTAGS	+= -erroff=E_INTEGER_OVERFLOW_DETECTED
-LINTTAGS	+= -erroff=E_STMT_NOT_REACHED
-LINTTAGS	+= -erroff=E_FUNC_NO_RET_VAL
-LINTTAGS	+= -erroff=E_USELESS_DECLARATION
-LINTTAGS	+= -erroff=E_EXPR_NULL_EFFECT
-LINTTAGS	+= -erroff=E_CASE_FALLTHRU
-LINTTAGS	+= -erroff=E_FUNC_DECL_VAR_ARG2
-LINTTAGS	+= -erroff=E_ASM_IMPOSSIBLE_CONSTRAINT
-LINTTAGS	+= -erroff=E_ASM_UNUSED_PARAM
-LINTTAGS	+= -erroff=E_NOP_IF_STMT
-LINTTAGS	+= -erroff=E_ZERO_OR_NEGATIVE_SUBSCRIPT
 
 CERRWARN	+= -_gcc=-Wno-empty-body
 
@@ -109,7 +74,7 @@ $(OBJS_DIR)/svm.o := CERRWARN += -_gcc=-Wno-pointer-sign -_gcc=-Wno-type-limits
 $(OBJS_DIR)/vmx.o := CERRWARN += -_gcc=-Wno-unused-variable
 $(OBJS_DIR)/iommu.o := CERRWARN += -_gcc=-Wno-unused-variable
 
-LDFLAGS         += -N misc/acpica -N misc/pcie -N fs/dev -z type=kmod
+LDFLAGS         += -N misc/acpica -N misc/pcie -N fs/dev -N fs/zfs -z type=kmod
 LDFLAGS         += -M $(MAPFILE)
 
 OFFSETS_VMX	= $(CONF_SRCDIR)/intel/offsets.in
