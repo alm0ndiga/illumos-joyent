@@ -38,7 +38,7 @@
  * http://www.illumos.org/license/CDDL.
  *
  * Copyright 2015 Pluribus Networks Inc.
- * Copyright 2019 Joyent, Inc.
+ * Copyright 2020 Joyent, Inc.
  */
 
 #ifndef	_VMM_DEV_H_
@@ -388,6 +388,7 @@ enum {
 	/* illumos-custom ioctls */
 	IOCNUM_DEVMEM_GETOFFSET = 256,
 	IOCNUM_WRLOCK_CYCLE = 257,
+	IOCNUM_ARC_RESV = 258,
 #endif
 };
 
@@ -506,6 +507,7 @@ enum {
 #define	VM_DEVMEM_GETOFFSET \
 	_IOW('v', IOCNUM_DEVMEM_GETOFFSET, struct vm_devmem_offset)
 #define	VM_WRLOCK_CYCLE _IO('v', IOCNUM_WRLOCK_CYCLE)
+#define	VM_ARC_RESV _IOW('v', IOCNUM_ARC_RESV, size_t)
 
 /* ioctls used against ctl device for vm create/destroy */
 #define	VMM_IOC_BASE		(('V' << 16) | ('M' << 8))
