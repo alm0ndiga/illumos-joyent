@@ -771,7 +771,7 @@ int vm_ioport_hook(struct vm *, uint_t, vmm_rmem_cb_t, vmm_wmem_cb_t, void *,
 void vm_ioport_unhook(struct vm *, void **);
 int vm_ioport_handle_hook(struct vm *, int, bool, int, int, uint32_t *);
 
-int vm_arc_resv(struct vm *, size_t);
+int vm_arc_resv(struct vm *, uint64_t);
 
 #endif /* _KERNEL */
 #endif /* __FreeBSD */

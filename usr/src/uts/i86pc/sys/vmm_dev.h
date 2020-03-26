@@ -507,7 +507,7 @@ enum {
 #define	VM_DEVMEM_GETOFFSET \
 	_IOW('v', IOCNUM_DEVMEM_GETOFFSET, struct vm_devmem_offset)
 #define	VM_WRLOCK_CYCLE _IO('v', IOCNUM_WRLOCK_CYCLE)
-#define	VM_ARC_RESV _IOW('v', IOCNUM_ARC_RESV, size_t)
+#define	VM_ARC_RESV _IOW('v', IOCNUM_ARC_RESV, uint64_t)
 
 /* ioctls used against ctl device for vm create/destroy */
 #define	VMM_IOC_BASE		(('V' << 16) | ('M' << 8))
