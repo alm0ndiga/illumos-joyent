@@ -1262,8 +1262,9 @@ main(int argc, char *argv[])
 #else
 	err = vm_arc_resv(ctx, memsize);
 	if (err != 0) {
-		(void) fprintf(stderr, "Warning: could not shrink ARC: %s\n",
+		(void) fprintf(stderr, "Could not shrink ARC: %s\n",
 		    strerror(err));
+		exit(4);
 	}
 
 	do {
